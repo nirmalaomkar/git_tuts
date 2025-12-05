@@ -1,0 +1,108 @@
+
+adduser new_username --> create new user
+password: *******
+
+
+passwd username				--> change the password for perticular user
+new password: ******
+Retype Password: *****
+
+addgrp new_groupname --> create the new group
+
+sudo usermod -aG Group_name User_name
+
+sudo usermod -aG development devops
+
+
+chown new_name file_name
+
+sudo chown devops:development package.json
+sudo chown test f10
+
+
+
+test --> dev
+test --> test
+
+-rw-r--r--  1 dev  staff   710 Oct 28 08:31 file2
+-rw-r--r--  1 dev  staff     0 Oct 24 08:33 file3
+-rw-r--r--  1 dev  staff     0 Oct 24 08:33 file4
+-rw-r--r--  1 dev  staff    23 Oct 24 09:05 file5
+
+user: test 
+
+chown test file4
+
+
+-rw-r--r--  1 dev  staff   710 Oct 28 08:31 file2
+-rw-r--r--  1 dev  staff     0 Oct 24 08:33 file3
+-rw-r--r--  1 test  staff     0 Oct 24 08:33 file4
+-rw-r--r--  1 dev  staff    23 Oct 24 09:05 file5
+
+
+chown test:test file4
+
+-rw-r--r--  1 dev  staff   710 Oct 28 08:31 file2
+-rw-r--r--  1 dev  staff     0 Oct 24 08:33 file3
+-rw-r--r--  1 test  test     0 Oct 24 08:33 file4
+-rw-r--r--  1 dev  staff    23 Oct 24 09:05 file5
+
+chown dev:test file2
+
+chown test file5
+
+sed: [ stream editor ]
+
+
+sed 's/pattern/change_pattern/g' filename
+sed '2s/pattern/change_pattern/g' filename
+
+sed '50,100s/pattern/change_pattern/g' filename
+sed '100,$s/pattern/change_pattern/g' filename
+
+sed -i '2s/pattern/change_pattern/g' filename -----> to replace a pattern inside a file'
+
+
+sed -n '3p' filename  
+sed -n '3,10p' filename
+sed -n '10,$p' filename
+sed -n '$p' filename
+assign: i want to print 3rd and 7th line content
+
+sed '5d' filename
+sed '7,$d' filename
+sed '$d' filename
+
+
+cut: columnwise
+
+  cut -d " " -f2 audit 
+  cut -d " " -f3 audit 
+  cut -d " " -f4 audit 
+
+  awk -F " " '{print $3}' audit 
+  awk -F " " '{print $4}' audit 
+  awk -F " " '{print $NF}' audit 
+  awk -F " " '{print $(NF-1)}' audit 
+
+#!/bin/bash
+df -h .|awk -F " " '{print $5}'|tail -1|sed 's/%//gi'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
